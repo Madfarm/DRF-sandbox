@@ -21,10 +21,10 @@ class GroupViewset(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class ListCreateMovieAPIView(ListCreateAPIView):
+class ListCreateCatAPIView(ListCreateAPIView):
     serializer_class = CatSerializer
     queryset = Cat.objects.all()
 
-class RetrieveUpdateDestroyMovieAPIView(RetrieveUpdateDestroyAPIView):
+class RetrieveUpdateDestroyCatAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = CatSerializer
     queryset = Cat.objects.all()

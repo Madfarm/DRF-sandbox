@@ -10,9 +10,11 @@ router.register(r'groups', views.GroupViewset)
 
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('/cats/', views.ListCreateCatAPIView.as_view(), name='get_post_cats'),
+    path('<int:pk>', views.RetrieveUpdateDestroyCatAPIView.as_view(), 'get_delete_update_cat'),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('admin/', admin.site.urls),
 ]
 
 urlpatterns += router.urls
