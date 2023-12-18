@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import permissions, viewsets
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
+from .models import Cat
 
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import CatSerializer, UserSerializer, GroupSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -18,3 +20,11 @@ class GroupViewset(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class ListCreateMovieAPIView(ListCreateAPIView):
+    serializer_class = CatSerializer
+    queryset = Cat.objects.all()
+
+class RetrieveUpdateDestroyMovieAPIView(RetrieveUpdateDestroyAPIView):
+    serializer_class = CatSerializer
+    queryset = Cat.objects.all()
