@@ -8,7 +8,6 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewset)
 
 
-# Issue with cats routing
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cats/', views.ListCreateCatAPIView.as_view(), name='get_post_cats'),
